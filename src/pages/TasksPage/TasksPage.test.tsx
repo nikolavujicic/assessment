@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import TasksPage from './TasksPage';
 import { useTasks } from '../../hooks/useTasks';
 import { ActionTypes } from '../../types';
+import { vi, expect } from 'vitest';
 
 vi.mock('../../hooks/useTasks', () => ({
     useTasks: vi.fn(),
@@ -11,6 +12,7 @@ describe('TasksPage', () => {
     const mockDispatch = vi.fn();
 
     beforeEach(() => {
+        // @ts-ignore
         (useTasks as jest.Mock).mockReturnValue({
             state: [
                 { id: '1', title: 'Task 1', description: 'Description 1' },

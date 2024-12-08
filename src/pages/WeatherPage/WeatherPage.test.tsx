@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import WeatherPage from './WeatherPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { expect } from 'vitest';
 
 const queryClient = new QueryClient();
 

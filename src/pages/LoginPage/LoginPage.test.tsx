@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { vi } from 'vitest';
+import { expect, vi } from 'vitest';
 import { useNavigate } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import { login } from '../../services/auth';
@@ -17,6 +17,7 @@ describe('LoginPage', () => {
   const mockNavigate = vi.fn();
 
   beforeEach(() => {
+    // @ts-ignore
     (useNavigate as vi.Mock).mockReturnValue(mockNavigate);
     vi.clearAllMocks();
   });
@@ -41,6 +42,7 @@ describe('LoginPage', () => {
   });
 
   it('calls login and navigates on successful submission', async () => {
+    // @ts-ignore
     (login as vi.Mock).mockResolvedValueOnce({ token: 'test-token' });
     render(<LoginPage />);
 
@@ -60,6 +62,7 @@ describe('LoginPage', () => {
   });
 
   it('displays error message on failed login', async () => {
+    // @ts-ignore
     (login as vi.Mock).mockRejectedValueOnce(new Error('Invalid credentials'));
     render(<LoginPage />);
 

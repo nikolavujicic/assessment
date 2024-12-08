@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import DashboardPage from './DashboardPage';
+import { expect } from 'vitest';
 
 describe('DashboardPage', () => {
   it('renders navigation links', () => {
